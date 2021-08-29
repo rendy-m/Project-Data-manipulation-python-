@@ -17,5 +17,23 @@
   
   All of the data become 1 dataset.
   
+# Adding New Column Country
+  because in df_dataset there is only column city, so we need add country column to add new information about which country the city is in
+  1. pick up information about a unique city from df_customer
+     df_customer['City'].sort_values().unique()
+     
+  2. Make a list variable from the information above
+     city_list = ['Barcelona', 'Berlin', 'Granada', 'Hamburg', 'Lyon', 'Madrid',
+       'Marseile', 'Munich', 'Nice', 'Palma', 'Paris', 'Seville',
+       'Valencia']
+       
+  3. Create dataframe country based on the city_list
+     df_city = pd.DataFrame({
+    'City': ['Barcelona', 'Berlin', 'Granada', 'Hamburg', 'Lyon', 'Madrid', 'Marseile', 'Munich', 'Nice', 'Palma', 'Paris', 'Seville',
+       'Valencia'],
+    'Country' : ['Spain','Germany','Spain','Germany','France','Spain','France','Germany','France','Spain','France','Spain','Spain']})
+    
+  4. Add Country column in df_dataset based on df_city
+     df_dataset = pd.merge(df_dataset,df_city,how = 'left')
   
   
