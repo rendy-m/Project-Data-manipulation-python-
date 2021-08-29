@@ -1,0 +1,21 @@
+# the bank customer data consist of :
+  1.customer_data.csv
+  2.bank_data_1.csv
+  3.bank_data_2.csv
+  4.balance_data.csv
+  
+  
+# Combining Data Into A Dataset
+  1. Merge df_bank1 and df_bank2 data into a df_bank data frame
+  df_bank = df_bank1.append(df_bank2).reset_index().drop('index',axis=1)
+  
+  2. Merge df_customer and df_bank data into a single df_dataset data frame
+  df_dataset = pd.merge(df_customer,df_bank, how = 'inner')
+  
+  3. Add Balance info from df_balance to df_dataset
+  df_dataset = pd.merge(df_dataset,df_balance,how = 'left')
+  
+  All of the data become 1 dataset.
+  
+  
+  
